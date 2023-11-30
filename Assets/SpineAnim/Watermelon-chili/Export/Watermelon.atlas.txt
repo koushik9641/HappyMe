@@ -1,0 +1,97 @@
+
+Watermelon.png
+size: 512,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body1
+  rotate: false
+  xy: 2, 294
+  size: 147, 133
+  orig: 147, 133
+  offset: 0, 0
+  index: -1
+body2
+  rotate: false
+  xy: 2, 197
+  size: 105, 95
+  orig: 105, 95
+  offset: 0, 0
+  index: -1
+drop_shadow
+  rotate: false
+  xy: 2, 429
+  size: 234, 49
+  orig: 234, 49
+  offset: 0, 0
+  index: -1
+eye_closed
+  rotate: true
+  xy: 109, 201
+  size: 91, 42
+  orig: 91, 42
+  offset: 0, 0
+  index: -1
+eye_open
+  rotate: false
+  xy: 331, 431
+  size: 91, 47
+  orig: 91, 47
+  offset: 0, 0
+  index: -1
+eyebrows
+  rotate: true
+  xy: 216, 342
+  size: 85, 17
+  orig: 85, 17
+  offset: 0, 0
+  index: -1
+left_leaf1
+  rotate: false
+  xy: 151, 328
+  size: 63, 99
+  orig: 63, 99
+  offset: 0, 0
+  index: -1
+left_leaf2
+  rotate: false
+  xy: 2, 52
+  size: 74, 74
+  orig: 74, 74
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: false
+  xy: 238, 423
+  size: 91, 55
+  orig: 91, 55
+  offset: 0, 0
+  index: -1
+right_leaf1
+  rotate: false
+  xy: 424, 444
+  size: 54, 34
+  orig: 54, 34
+  offset: 0, 0
+  index: -1
+right_leaf2
+  rotate: false
+  xy: 2, 128
+  size: 85, 67
+  orig: 85, 67
+  offset: 0, 0
+  index: -1
+toung
+  rotate: false
+  xy: 151, 302
+  size: 23, 24
+  orig: 23, 24
+  offset: 0, 0
+  index: -1
+vine
+  rotate: false
+  xy: 2, 12
+  size: 58, 38
+  orig: 58, 38
+  offset: 0, 0
+  index: -1
