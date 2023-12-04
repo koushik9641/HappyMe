@@ -22,6 +22,7 @@ public class BackGroundButton : MonoBehaviour
                 Shop.instance.BuyItem("background", price, GetMyID());
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             }
         }
         else

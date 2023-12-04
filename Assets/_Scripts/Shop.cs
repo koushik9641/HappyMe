@@ -55,27 +55,32 @@ public class Shop : MonoBehaviour
                 {
                     GlassesContent.GetChild(item.index).GetChild(0).gameObject.SetActive(false);
                     GlassesContent.GetChild(item.index).GetChild(1).gameObject.SetActive(true);
+                    GlassesContent.GetChild(item.index).GetChild(6).gameObject.SetActive(false);
                 }
                 else if (item.type == "pen")
                 {
                     PencilsContent.GetChild(item.index).GetChild(0).gameObject.SetActive(false);
                     PencilsContent.GetChild(item.index).GetChild(1).gameObject.SetActive(true);
+                    //Debug.Log("object name:" + PencilsContent.GetChild(item.index).GetChild(2).GetChild(0).gameObject);
+                    PencilsContent.GetChild(item.index).GetChild(2).GetChild(0).gameObject.SetActive(false);
                 }
                 else if (item.type == "color")
                 {
                     ColorsContent.GetChild(item.index).GetChild(0).gameObject.SetActive(false);
                     ColorsContent.GetChild(item.index).GetChild(1).gameObject.SetActive(true);
+                    ColorsContent.GetChild(item.index).GetChild(2).GetChild(0).gameObject.SetActive(false);
                 }
                 else if (item.type == "background")
                 {
                     BackgroundsContent.GetChild(item.index).GetChild(0).gameObject.SetActive(false);
                     BackgroundsContent.GetChild(item.index).GetChild(1).gameObject.SetActive(true);
+                    BackgroundsContent.GetChild(item.index).GetChild(2).GetChild(0).gameObject.SetActive(false);
                 }
             }
             int numOpenedItems = PlayerPrefs.GetInt("curLevel", 1) / 10 + 1;
             for (int i = 0; i < GlassesContent.childCount & i < numOpenedItems; i++)
             {
-                GlassesContent.GetChild(i).GetChild(5).GetChild(0).gameObject.SetActive(false);
+              //  GlassesContent.GetChild(i).GetChild(5).GetChild(0).gameObject.SetActive(false);
                 GlassesContent.GetChild(i).GetComponent<Button>().interactable = true;
             }
             for (int i = 0; i < ColorsContent.childCount & i < numOpenedItems; i++)
@@ -84,7 +89,7 @@ public class Shop : MonoBehaviour
                 ColorsContent.GetChild(i).GetComponent<Button>().interactable = true;
             }
             for (int i = 0; i < PencilsContent.childCount & i < numOpenedItems; i++)
-            {
+            {               
                 PencilsContent.GetChild(i).GetChild(2).GetChild(0).gameObject.SetActive(false);
                 PencilsContent.GetChild(i).GetComponent<Button>().interactable = true;
             }
@@ -157,6 +162,8 @@ public class Shop : MonoBehaviour
         shopdata.PurchasedItems.Add(item);
         balance -= price;
         PlayerPrefs.SetInt("totalStar", balance);
+        Debug.Log("balance:" + balance);
+        Debug.Log("balance in pref:" + PlayerPrefs.GetInt("totalStar").ToString());
         txtTotalStar.text = balance.ToString();
         SaveData();
     }

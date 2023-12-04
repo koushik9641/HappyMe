@@ -21,6 +21,7 @@ public class ColorButton : MonoBehaviour
                 Shop.instance.BuyItem("color", price, GetMyID());
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
             }
         }
         else

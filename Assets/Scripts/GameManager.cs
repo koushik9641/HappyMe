@@ -37,6 +37,8 @@ public class GameManager : Singleton<GameManager>
 
     List<LineRenderer> listHintLine = new List<LineRenderer>();
     // Use this for initialization
+
+    public GameObject winnerBoard;
     void Start()
     {
         AdsManager.Instance.LoadInterstitial();
@@ -107,8 +109,11 @@ public class GameManager : Singleton<GameManager>
             Texture2D newTexture = new Texture2D(2, 2); // You might need to set the correct dimensions
             newTexture.LoadImage(textureBytes);
 
+            // Calculate the offset to set the pivot at the bottom
+            Vector2 pivotOffset = new Vector2(0.5f, 0); // Pivot at the bottom center
+
             // Create a new Sprite using the newTexture
-            Sprite newSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), new Vector2(0.5f, 0.5f));
+            Sprite newSprite = Sprite.Create(newTexture, new Rect(0, 0, newTexture.width, newTexture.height), pivotOffset);
 
             // Assign the new Sprite to the SpriteRenderer
             Pencil.sprite = newSprite;
@@ -361,7 +366,7 @@ public class GameManager : Singleton<GameManager>
         yield return new WaitForSeconds(3.5f);
 
         SceneTransition.Instance.LoadScene("Victory", TransitionType.WaterLogo);
-
+        //winnerFunction();
 
 
     }
@@ -410,6 +415,15 @@ public class GameManager : Singleton<GameManager>
         {
             ReplayClick();
         }
+
+    }
+
+    public void winnerFunction()
+    {
+        Debug.Log("Winner Function called");
+   
+
+        winnerBoard.gameObject.SetActive(true);
 
     }
 }

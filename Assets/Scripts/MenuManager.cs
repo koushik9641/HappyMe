@@ -13,6 +13,8 @@ public class MenuManager : MonoBehaviour {
     public Button btnAudio;
     public Sprite audioOn, audioOff;
     // Use this for initialization
+
+    
     private void Awake()
     {
         if (PlayerPrefs.HasKey("color"))

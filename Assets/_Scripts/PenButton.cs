@@ -10,6 +10,7 @@ public class PenButton : MonoBehaviour
 
     public void ButtonClick()
     {
+        Debug.Log("Pressed button click:");
         if (transform.GetChild(0).gameObject.activeSelf)
         {
             if (price > Shop.instance.balance)
@@ -19,9 +20,15 @@ public class PenButton : MonoBehaviour
             }
             else
             {
+                //Debug.Log("object name:" + transform.GetChild(2).GetChild(0).gameObject);
+                Debug.Log("Possible buy:");
                 Shop.instance.BuyItem("pen", price, GetMyID());
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(1).gameObject.SetActive(true);
+
+                transform.GetChild(2).GetChild(0).gameObject.SetActive(false);
+          
+
             }
         }
         else

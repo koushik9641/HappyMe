@@ -11,22 +11,30 @@ public class GlassButton : MonoBehaviour
 
     public void ButtonClick()
     {
+        Debug.Log("Pressed button click:");
         if (transform.GetChild(0).gameObject.activeSelf)
         {
+            Debug.Log("Balanace money:" + Shop.instance.balance);
             if (price > Shop.instance.balance)
             {
+                Debug.Log("not Possible buy:");
                 //Do what you want
                 return;
+
             }
             else
             {
+                Debug.Log("Possible buy:");
                 Shop.instance.BuyItem("glass", price, GetMyID());
                 transform.GetChild(0).gameObject.SetActive(false);
                 transform.GetChild(1).gameObject.SetActive(true);
+                transform.GetChild(6).gameObject.SetActive(false);
+
             }
         }
         else
         {
+
             texture = GetComponent<Image>().sprite.texture;
             // Encode the texture as a PNG
             byte[] textureBytes = texture.EncodeToPNG();
@@ -43,8 +51,10 @@ public class GlassButton : MonoBehaviour
             Transform parent = transform.parent;
 
             parent.GetChild(Shop.instance.shopdata.selectedGlass).GetChild(1).gameObject.SetActive(true);
-            transform.GetChild(1).gameObject.SetActive(false);
 
+            transform.GetChild(1).gameObject.SetActive(false);
+            transform.GetChild(6).gameObject.SetActive(false);
+            Debug.Log("object name:" + parent.GetChild(Shop.instance.shopdata.selectedGlass).GetChild(1).gameObject);
             Shop.instance.shopdata.selectedGlass = GetMyID();
 
             Shop.instance.SaveData();
@@ -98,3 +108,4 @@ public class GlassButton : MonoBehaviour
         }
     }
 }
+
