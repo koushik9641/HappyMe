@@ -129,11 +129,11 @@ public class WinnerManager : MonoBehaviour
 
     public void HomeClick()
     {
-        SceneTransition.Instance.LoadScene("Menu", TransitionType.WaterLogo);
+        SceneTransition.Instance.LoadScene("Menu", TransitionType.FadeToBlack);
     }
     public void PlayAgain()
     {
-        SceneTransition.Instance.LoadScene("MainGame", TransitionType.WaterLogo);
+        SceneTransition.Instance.LoadScene("MainGame", TransitionType.FadeToBlack);
     }
     public void ChooseLevel()
     {

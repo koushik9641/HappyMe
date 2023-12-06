@@ -112,7 +112,7 @@ public class Shop : MonoBehaviour
         //data -> actual loaded data.
         //result -> Succes/Error
         //mesage -> error message
-        //balance = PlayerPrefs.GetInt("totalStar", 0);
+        balance = PlayerPrefs.GetInt("totalStar", 5000);
         txtTotalStar.text = balance.ToString();
         SceneTransition.Instance.Out();
 

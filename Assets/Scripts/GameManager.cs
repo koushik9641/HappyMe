@@ -41,8 +41,8 @@ public class GameManager : Singleton<GameManager>
     public GameObject winnerBoard;
     void Start()
     {
-        AdsManager.Instance.LoadInterstitial();
-        AdsManager.Instance.LoadBanner();
+        //AdsManager.Instance.LoadInterstitial();
+        //AdsManager.Instance.LoadBanner();
 
         Debug.Log("ShowInterstitial........................................");
         GameStatus = GameStatus.WAITING;
@@ -50,7 +50,7 @@ public class GameManager : Singleton<GameManager>
         {
             GiftBoxPanel.SetActive(true);
         }
-        txtTotalStar.text = PlayerPrefs.GetInt("totalStar", 0).ToString();
+        txtTotalStar.text = PlayerPrefs.GetInt("totalStar", 5000).ToString();
         txtLevel.text = PlayerPrefs.GetInt("curLevel", 1).ToString();
         Instantiate(listLevel[PlayerPrefs.GetInt("curLevel", 1) - 1], transform);
         starSlider.setThreeStarLength(GetComponentInChildren<LevelInfo>().ThreeStarLength);
@@ -365,10 +365,8 @@ public class GameManager : Singleton<GameManager>
 
         yield return new WaitForSeconds(3.5f);
 
-        SceneTransition.Instance.LoadScene("Victory", TransitionType.WaterLogo);
+        SceneTransition.Instance.LoadScene("Victory", TransitionType.FadeToBlack);
         //winnerFunction();
-
-
     }
     private Texture2D ScaleTexture(Texture2D source, int targetWidth, int targetHeight)
     {

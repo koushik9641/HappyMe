@@ -78,16 +78,18 @@ public class VictoryManager : MonoBehaviour {
     {
         yield return new WaitForSeconds(2);
         //AudioManager.Instance.Play("star_explosion");
+        Debug.Log("explosion..." + Board.transform.GetChild(i).GetChild(0).gameObject);
         GetComponents<AudioSource>()[0].Play();
         Board.transform.GetChild(i).GetChild(0).DOScale(1, 0.8f).SetEase(Ease.OutBounce);
+        
         Destroy(Instantiate(StarBust, Board.transform.GetChild(i).position, Quaternion.identity), 3);
         if (i == 2)
         {
             yield return new WaitForSeconds(0.3f);
             //AudioManager.Instance.Play("congratulation");
             GetComponents<AudioSource>()[1].Play();
-            Destroy(Instantiate(Confetti, Board.transform.position+Vector3.up*1.9f, Quaternion.identity), 3);
-            
+            Destroy(Instantiate(Confetti, Board.transform.position + Vector3.up * 1.9f, Quaternion.identity), 3);
+
         }
     }
     public void NextLevel()
@@ -105,14 +107,16 @@ public class VictoryManager : MonoBehaviour {
     }
     public void HomeClick()
     {
-        SceneTransition.Instance.LoadScene("Menu", TransitionType.WaterLogo);
+        // SceneTransition.Instance.LoadScene("Menu", TransitionType.WaterLogoSceneTransition.Instance.LoadScene("Menu", TransitionType.WaterLogo);
+        SceneTransition.Instance.LoadScene("Menu", TransitionType.FadeToBlack);
+
     }
     public void PlayAgain()
     {
-        SceneTransition.Instance.LoadScene("MainGame", TransitionType.WaterLogo);
+        SceneTransition.Instance.LoadScene("MainGame", TransitionType.FadeToBlack);
     }
     public void ChooseLevel()
     {
-        SceneTransition.Instance.LoadScene("ChooseLevel", TransitionType.WaterLogo);
+        SceneTransition.Instance.LoadScene("ChooseLevel", TransitionType.FadeToBlack);
     }
 }
