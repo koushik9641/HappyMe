@@ -39,6 +39,7 @@ public class GameManager : Singleton<GameManager>
     // Use this for initialization
 
     public GameObject winnerBoard;
+    public Material WaterColor;
     void Start()
     {
         //AdsManager.Instance.LoadInterstitial();
@@ -101,7 +102,7 @@ public class GameManager : Singleton<GameManager>
         if (PlayerPrefs.HasKey("pen"))
         {
             string textureBase64 = PlayerPrefs.GetString("pen"); // Replace with your actual Base64 string
-
+            Debug.Log("Pen in Game MAnager: " + textureBase64);
             // Convert the Base64 string to a byte array
             byte[] textureBytes = System.Convert.FromBase64String(textureBase64);
 
@@ -118,7 +119,24 @@ public class GameManager : Singleton<GameManager>
             // Assign the new Sprite to the SpriteRenderer
             Pencil.sprite = newSprite;
         }
+        if (PlayerPrefs.HasKey("color"))
+        {
+            WaterColor.color = ColorFromHex_color(PlayerPrefs.GetString("color"));
+            Debug.Log("Color in Game Manager: " + WaterColor.color);
+        }
+        else
+        {
+            WaterColor.color = ColorFromHex_color("#28BEF3");
+            Debug.Log("Color in Game MAnager else condition: " + WaterColor.color);
+        }
     }
+
+ 
+    private Color ColorFromHex(string v)
+    {
+        throw new System.NotImplementedException();
+    }
+
     public void giftBoxClick()
     {
         if (GameStatus == GameStatus.WAITING)
@@ -423,5 +441,19 @@ public class GameManager : Singleton<GameManager>
 
         winnerBoard.gameObject.SetActive(true);
 
+    }
+    Color ColorFromHex_color(string hex)
+    {
+        Color color = Color.white; // Default color
+
+        if (ColorUtility.TryParseHtmlString(hex, out color))
+        {
+            return color;
+        }
+        else
+        {
+            Debug.LogWarning("Invalid hex color code. It should be in the format #RRGGBB or #AARRGGBB.");
+            return Color.white;
+        }
     }
 }

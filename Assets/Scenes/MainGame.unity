@@ -13704,6 +13704,7 @@ MonoBehaviour:
   Pencil: {fileID: 309969783}
   ShopPanel: {fileID: 803520373}
   winnerBoard: {fileID: 857935329}
+  WaterColor: {fileID: 2100000, guid: 0d9aa5133c2673144b5eac7c6f01cd2c, type: 2}
 --- !u!4 &1889830855
 Transform:
   m_ObjectHideFlags: 0

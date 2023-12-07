@@ -20,10 +20,12 @@ public class MenuManager : MonoBehaviour {
         if (PlayerPrefs.HasKey("color"))
         {
             WaterColor.color = ColorFromHex(PlayerPrefs.GetString("color"));
+            Debug.Log("Color in menu Manager: " + WaterColor.color);
         }
         else
         {
             WaterColor.color = ColorFromHex("#28BEF3");
+            Debug.Log("Color in Game MAnager else condition: " + WaterColor.color);
         }
         if (PlayerPrefs.HasKey("background"))
         {
